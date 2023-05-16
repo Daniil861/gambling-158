@@ -1,0 +1,250 @@
+.slot {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background-image: url("@img/other/bg.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	opacity: 0;
+	visibility: hidden;
+
+	transition: all 0.5s ease 0.25s;
+
+	._slot & {
+		opacity: 1;
+		visibility: visible;
+	}
+	// .slot__body
+
+	&__body {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+
+		min-height: 100vh;
+	}
+
+	&__btn-home {
+		width: 110px;
+		height: 25px;
+		span {
+			font-size: 15px;
+		}
+	}
+
+	&__header {
+	}
+
+	&__game-box {
+		flex: 1 1 auto;
+		display: grid;
+		grid-template-columns: 1fr 200px;
+	}
+
+	&__game {
+		display: flex;
+		align-items: center;
+	}
+
+	// .slot__box
+
+	&__box {
+		position: relative;
+		display: flex;
+		margin: 0 auto;
+	}
+
+	// .slot__cont
+
+	&__cont {
+		flex: 1 1 auto;
+
+		position: relative;
+		z-index: 2;
+	}
+
+	// .slot__controls
+
+	&__controls {
+	}
+}
+
+.controls-slot {
+	display: flex;
+	// .controls-slot__body
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		row-gap: 10px;
+
+		padding-bottom: 10px;
+
+		@media (max-width: 620px) {
+			transform: scale(0.7);
+		}
+	}
+
+	// .controls-slot__button-spin
+
+	&__button-spin {
+		width: 176px;
+		height: 69px;
+	}
+
+	&__button-spin {
+		transition: all 0.3s ease 0s;
+		&._hold {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+		&:active {
+			transform: translateY(3px);
+		}
+	}
+}
+
+.bet-box {
+	width: 100%;
+	// .bet-box__body
+
+	&__body {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+
+		transition: all 0.3s ease 0s;
+		._lock & {
+			pointer-events: none;
+			opacity: 0.5;
+		}
+		@media (max-width: 700px) {
+			column-gap: 5px;
+		}
+	}
+
+	&__info {
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 20px;
+
+		width: 100%;
+		height: 42px;
+	}
+
+	// .bet-box__icon
+
+	&__icon {
+		width: 25px;
+		height: 20px;
+
+		background-image: url("@img/icons/coin.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+	// .bet-box__bet
+
+	&__bet {
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: space-between;
+		column-gap: 10px;
+
+		width: 100%;
+	}
+
+	&__plus,
+	&__minus {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		flex-shrink: 0;
+		flex-grow: 0;
+		flex-basis: 76px;
+
+		width: 76px;
+		height: 42px;
+
+		transition: all 0.3s ease 0s;
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+}
+
+#slot3 {
+	flex: 1 1 auto;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	top: 10px;
+}
+
+.reels3 {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	column-gap: 35px;
+
+	width: 46vw;
+	height: calc((3 / 3) * 100vw);
+	max-height: 35vw;
+	max-width: calc(2.2 * (90vh - 50px));
+
+	@media (min-width: 700px) and (min-height: 700px) {
+		max-height: 39vw;
+	}
+}
+
+.reel3 {
+	position: relative;
+	overflow: hidden;
+	z-index: 5;
+	width: 33%;
+	height: 100%;
+
+	.icons {
+		position: relative;
+		z-index: 3;
+		text-align: center;
+		padding-top: 5px;
+
+		img {
+			position: relative;
+			width: calc(100% - 5px);
+			margin: -3px 0 0 -3px;
+			height: auto;
+
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+#slot3.inverted .reel {
+	transform: scaleY(-1);
+}
+
+#slot3.inverted .reel > .icons > img {
+	transform: scaleY(-1);
+}
